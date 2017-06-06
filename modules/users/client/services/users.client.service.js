@@ -39,7 +39,11 @@
       signin: {
         method: 'POST',
         url: '/api/auth/signin'
-      }
+      },
+      isAWSAccountId: {
+        method: 'POST',
+        url: '/api/users/aws/valid'
+      },
     });
 
     angular.extend(Users, {
@@ -64,7 +68,10 @@
       },
       userSignin: function (credentials) {
         return this.signin(credentials).$promise;
-      }
+      },
+      isAWSAccountId: function(awsId) {
+        return this.isAWSAccountId(awsId).$promise;
+      },
     });
 
     return Users;

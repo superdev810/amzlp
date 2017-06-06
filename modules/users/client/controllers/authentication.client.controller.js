@@ -5,9 +5,9 @@
     .module('users')
     .controller('AuthenticationController', AuthenticationController);
 
-  AuthenticationController.$inject = ['$scope', '$state', 'UsersService', '$location', '$window', 'Authentication', 'PasswordValidator', 'Notification'];
+  AuthenticationController.$inject = ['$scope', '$state', '$http', 'UsersService', '$location', '$window', 'Authentication', 'PasswordValidator', 'Notification'];
 
-  function AuthenticationController($scope, $state, UsersService, $location, $window, Authentication, PasswordValidator, Notification) {
+  function AuthenticationController($scope, $state, $http, UsersService, $location, $window, Authentication, PasswordValidator, Notification) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -15,8 +15,10 @@
     vm.signup = signup;
     vm.signin = signin;
     vm.callOauthProvider = callOauthProvider;
+    vm.isAWSAccountIde = isAWSAccountIde;
+    vm.onChangeAWSId = onChangeAWSId;
     vm.usernameRegex = /^(?=[\w.-]+$)(?!.*[._-]{2})(?!\.)(?!.*\.$).{3,34}$/;
-
+    vm.validButton = true;
     // Get an eventual error defined in the URL query string:
     if ($location.search().err) {
       Notification.error({ message: $location.search().err });
@@ -25,6 +27,26 @@
     // If user is signed in then redirect back home
     if (vm.authentication.user) {
       $location.path('/');
+    }
+
+    function isAWSAccountIde(){
+      console.log('is aws account')
+      $http.post('/api/users/aws/valid', {awsId: vm.credentials.awsId})
+        .success(function(res){
+          console.log(res);
+          if(res.valid){
+            Notification.success({ message: 'Valid AWS Account ID!' });
+          } else {
+            Notification.error({ message: 'Invalid AWS Account ID!' });
+          }
+        })
+        .error(function(){
+          Notification.error({ message: 'Invalid AWS Account ID!' });
+        })
+    }
+
+    function onChangeAWSId(){
+      vm.validButton = false;
     }
 
     function signup(isValid) {

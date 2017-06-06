@@ -47,6 +47,42 @@
           <label>Password Requirements</label>
           <uib-progressbar value="requirementsProgress" type="{{requirementsColor}}"><span style="color:white; white-space:nowrap;">{{requirementsProgress}}%</span></uib-progressbar>
         </div>
+        <div class="form-group" show-errors>
+          <label for="awsId">AWS ID <span class="text-danger">*</span></label>
+          <input type="password" id="awsId" name="awsId" class="form-control" ng-model="vm.credentials.awsId" placeholder="AWS ID" ng-change="vm.onChangeAWSId()" required>
+          <div class="row mt-10" ng-hide="true">
+            <button type="button" class="btn btn-primary col-md-offset-7" ng-click="vm.isAWSAccountIde()" ng-disabled="vm.validButton">Validate ID</button>
+          </div>
+          <div ng-messages="vm.userForm.awsId.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">AWS ID is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="awsSecret">AWS Secret Key <span class="text-danger">*</span></label>
+          <input type="password" id="awsSecret" name="awsSecret" class="form-control" ng-model="vm.credentials.awsSecret" placeholder="AWS Secret Key" required>
+          <div ng-messages="vm.userForm.awsSecret.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">AWS Secret is required.</p>
+          </div>
+        </div>
+        <div class="form-group" show-errors>
+          <label for="assocId">Associate Id <span class="text-danger">*</span></label>
+          <input type="password" id="assocId" name="assocId" class="form-control" ng-model="vm.credentials.assocId" placeholder="Associate Id" required>
+          <div ng-messages="vm.userForm.assocId.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Associate ID is required.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="merchantId">Merchant Id</label>
+          <input type="password" id="merchantId" name="merchantId" class="form-control" ng-model="vm.credentials.merchantId" placeholder="Merchant Id">
+        </div>
+        <div class="form-group">
+          <label for="marketId">Marketplace Id</label>
+          <input type="password" id="marketId" name="marketId" class="form-control" ng-model="vm.credentials.marketId" placeholder="Marketplace Id">
+        </div>
+        <div class="form-group">
+          <label for="accessToken">Access Token</label>
+          <input type="password" id="accessToken" name="accessToken" class="form-control" ng-model="vm.credentials.accessToken" placeholder="Accees Token">
+        </div>
         <div class="text-center form-group">
           <button type="submit" class="btn btn-primary">Sign up</button>
           &nbsp; or&nbsp;

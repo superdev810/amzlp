@@ -4,6 +4,7 @@
  * Module dependencies
  */
 var _ = require('lodash'),
+  isAWSAccountId = require('is-aws-account-id'),
   mongoose = require('mongoose'),
   User = mongoose.model('User');
 
@@ -30,3 +31,9 @@ exports.userByID = function (req, res, next, id) {
     next();
   });
 };
+
+exports.validAWSAccountId = function(req, res){
+  console.log(req.body);
+  var aws_id = req.body.awsId;
+  return res.json({valid: isAWSAccountId(aws_id)});
+}

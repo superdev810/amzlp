@@ -1,0 +1,18 @@
+<section>
+  <div class="page-header">
+    <h1>Product Listing</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="product in vm.products" ui-sref="products.view({ productId: product._id })" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="product.ItemAttributes.PublicationDate | date:'mediumDate'"></span>
+        by
+        <span ng-if="product.ItemAttributes.Author" ng-bind="product.ItemAttributes.Author"></span>
+        <span ng-if="!product.ItemAttributes.Author">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="product.ItemAttributes.Title"></h4>
+      <p class="list-group-item-text" ng-bind="product.ItemAttributes.Studio"></p>
+    </a>
+  </div>
+</section>

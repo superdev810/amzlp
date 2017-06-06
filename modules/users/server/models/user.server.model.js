@@ -124,6 +124,29 @@ var UserSchema = new Schema({
   },
   resetPasswordExpires: {
     type: Date
+  },
+  /* Amazon MWS Access */
+
+  awsId:{
+    type: String,
+    trim: true
+  },
+  awsSecret: {
+    type: String,
+    trim: true
+  },
+  assocId: {
+    type: String,
+    trim: true
+  },
+  marketId: {
+    type: String
+  },
+  merchantId: {
+    type: String
+  },
+  accessToken: {
+    type: String
   }
 });
 

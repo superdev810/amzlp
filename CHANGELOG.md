@@ -936,7 +936,7 @@
 * feat(articles): Article Admin feature (#807) ([89075cb](https://github.com/meanjs/mean/commit/89075cb))
 * feat(articles): ArticlesService extended $resource (#1266) ([a7370a7](https://github.com/meanjs/mean/commit/a7370a7))
 * feat(articles): Modify articles module to implement style guidelines. ([b3ad56e](https://github.com/meanjs/mean/commit/b3ad56e)), closes [#874](https://github.com/meanjs/mean/issues/874) [#339](https://github.com/meanjs/mean/issues/339)
-* feat(articles): Rename list.articles.client.controller.js to list-articles.client.controller.js ([a014ffc](https://github.com/meanjs/mean/commit/a014ffc)), closes [#1192](https://github.com/meanjs/mean/issues/1192)
+* feat(articles): Rename list.products.client.controller.js to list-products.client.controller.js ([a014ffc](https://github.com/meanjs/mean/commit/a014ffc)), closes [#1192](https://github.com/meanjs/mean/issues/1192)
 * feat(build): added imagemin to gulp ([1a3f6f8](https://github.com/meanjs/mean/commit/1a3f6f8))
 * feat(build): Modify Travis config (#1467) ([55525bd](https://github.com/meanjs/mean/commit/55525bd))
 * feat(build): Wiredep task for grunt and gulp (#1402) ([0934f87](https://github.com/meanjs/mean/commit/0934f87)), closes [#1398](https://github.com/meanjs/mean/issues/1398) [#1402](https://github.com/meanjs/mean/issues/1402)
